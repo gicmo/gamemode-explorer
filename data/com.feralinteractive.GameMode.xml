@@ -1,0 +1,57 @@
+<!DOCTYPE node PUBLIC
+"-//freedesktop//DTD D-BUS Object Introspection 1.0//EN"
+"http://www.freedesktop.org/standards/dbus/1.0/introspect.dtd">
+<node name="/" xmlns:doc="http://www.freedesktop.org/dbus/1.0/doc.dtd">
+  <interface name="com.feralinteractive.GameMode">
+    <property name="ClientCount" type="i" access="read">
+    </property>
+    <method name="RegisterGame">
+      <arg name="pid" type="i" direction="in"/>
+      <arg name="result" type="i" direction="out"/>
+    </method>
+    <method name="UnregisterGame">
+      <arg name="pid" type="i" direction="in"/>
+      <arg name="result" type="i" direction="out"/>
+    </method>
+    <method name="QueryStatus">
+      <arg name="pid" type="i" direction="in"/>
+      <arg name="result" type="i" direction="out"/>
+    </method>
+    <method name="RegisterGameByPID">
+      <arg name="pid" type="i" direction="in"/>
+      <arg name="requestor" type="i" direction="in"/>
+      <arg name="result" type="i" direction="out"/>
+    </method>
+    <method name="UnregisterGameByPID">
+      <arg name="pid" type="i" direction="in"/>
+      <arg name="requestor" type="i" direction="in"/>
+      <arg name="result" type="i" direction="out"/>
+    </method>
+    <method name="QueryStatusByPID">
+      <arg name="pid" type="i" direction="in"/>
+      <arg name="requestor" type="i" direction="in"/>
+      <arg name="result" type="i" direction="out"/>
+    </method>
+    <method name="RefreshConfig">
+      <arg name="result" type="i" direction="out"/>
+    </method>
+    <method name="ListGames">
+      <arg name="Info" type="a(io)" direction="out"/>
+    </method>
+    <signal name="GameRegistered">
+      <arg name="pid" type="i"/>
+      <arg name="path" type="o"/>
+    </signal>
+    <signal name="GameUnregistered">
+      <arg name="pid" type="i"/>
+      <arg name="path" type="o"/>
+    </signal>
+  </interface>
+  <interface name="com.feralinteractive.GameMode.Game">
+    <property name="ProcessId" type="i" access="read">
+    </property>
+    <property name="Exectuable" type="s" access="read">
+    </property>
+  </interface>
+</node>
+
