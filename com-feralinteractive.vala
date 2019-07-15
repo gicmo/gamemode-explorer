@@ -8,8 +8,8 @@ public interface GameMode.Game : GLib.Object {
 	[DBus (name = "ProcessId")]
 	public abstract int process_id {  get; }
 
-	[DBus (name = "Exectuable")]
-	public abstract string exectuable { owned get; }
+	[DBus (name = "Executable")]
+	public abstract string executable { owned get; }
 }
 
 [DBus (name = "com.feralinteractive.GameMode", timeout = 120000)]
